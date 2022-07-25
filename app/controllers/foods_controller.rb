@@ -1,5 +1,7 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /foods or /foods.json
   def index
@@ -12,7 +14,8 @@ class FoodsController < ApplicationController
 
   # GET /foods/new
   def new
-    @food = Food.new
+    # @food = Food.new
+    @food = current_user.foods.build
   end
 
   # GET /foods/1/edit
@@ -21,7 +24,8 @@ class FoodsController < ApplicationController
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(food_params)
+    # @food = Food.new(food_params)
+    @food = current_user.foods.build(food_params)
 
     respond_to do |format|
       if @food.save
@@ -55,6 +59,11 @@ class FoodsController < ApplicationController
       format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def correct_user
+    @food = current_user.foods.find_by(id: params[:id])
+    redirect_to foods_path, notice: "You are not authorized to perform that operation" if @food.nil?
   end
 
   private
