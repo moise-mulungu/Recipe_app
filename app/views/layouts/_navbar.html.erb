@@ -6,12 +6,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to 'Sign In', root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Sign Up', root_path, class: "nav-link" %>
-        </li>
+
+      <% if user_signed_in? %>
+          
+          <li class="nav-item">
+            <%= link_to "Sign Out", destroy_user_session_path, mathod: :delete, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'About Us', about_index_path, class: "nav-link" %>
+          </li>
+
+          <% else %>
+          
+
+          <li class="nav-item">
+            <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          </li>
+
+        <% end %>
+        
         <li class="nav-item">
           <%= link_to 'Foods', root_path, class: "nav-link" %>
         </li>
@@ -20,8 +39,6 @@
         </li><li class="nav-item">
           <%= link_to 'Recipe foods', root_path, class: "nav-link" %>
         </li>
-        </li><li class="nav-item">
-          <%= link_to 'About Us', about_index_path, class: "nav-link" %>
         </li>
     </div>
   </div>
