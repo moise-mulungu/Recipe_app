@@ -3,12 +3,26 @@
 <h1>Foods</h1>
 
 <div id="foods">
+<br/>
+  <table class="table table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Measurement unit</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
   <% @foods.each do |food| %>
     <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
   <% end %>
+  </tbody>
 </div>
 
-<%= link_to "New food", new_food_path %>
+<div class="d-flex justify-content-end">
+  <%= link_to "New food", new_food_path, class: "btn btn-primary  " %>
+</div>
+
