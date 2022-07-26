@@ -1,0 +1,9 @@
+<% if food.user == current_user %>
+    <tr>
+      <td> <%= link_to food.name, food %> </td>
+      <td> <%= food.measurement_unit %> </td>
+      <td> <%= food.price %> </td>
+      <td> <%= food.quantity %> </td>
+      <td> <%= link_to "Delete", @food, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger  btn-sm" %> </td>
+    </tr>
+<% end %>

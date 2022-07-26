@@ -11,12 +11,14 @@ AllCops:
   DisplayCopNames: true
 
 Layout/LineLength:
-  Max: 120
+  Max: 350
 Metrics/MethodLength:
+  Exclude:
+    - "bin/*"
   Include:
     - "app/controllers/*"
     - "app/models/*"
-  Max: 20
+  Max: 30
 Metrics/AbcSize:
   Include:
     - "app/controllers/*"
@@ -26,7 +28,9 @@ Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
-  Max: 30
+  Max: 35
+Metrics/CyclomaticComplexity:
+  Max: 12
 
 Style/Documentation:
   Enabled: false
