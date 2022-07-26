@@ -2,36 +2,23 @@
 
 <h1>Recipes</h1>
 
-<table class="table table-bordered table-dark">
-  <thead>
+
+
+<table class="table table-striped table-bordered">
+  <thead class="table-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">preparation_time</th>
-      <th scope="col">cooking_time</th>
-      <th scope="col">description</th>
-      <th scope="col">user_id</th>
+      <th>Name</th>
+      <th>Preparation_time</th>
+      <th>Cooking_time</th>
+      <th>Description</th>
+      <th>Delete</th>
+
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>{name}</td>
-      <td>{preparation_time}</td>
-      <td>{cooking_time}</td>
-      <td>{description}</td>
-      <td>{user_id}</td>
-    </tr>
-    
-  </tbody>
-</table>
-<div id="recipes">
   <% @recipes.each do |recipe| %>
     <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
   <% end %>
-</div>
+  </tbody>
 
 <%= link_to "New recipe", new_recipe_path %>
