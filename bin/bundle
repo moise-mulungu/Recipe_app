@@ -22,8 +22,7 @@ m = Module.new do
   end
 
   def cli_arg_version
-    return unless invoked_as_script? # don't want to hijack other binstubs
-    return unless 'update'.start_with?(ARGV.first || ' ') # must be running `bundle update`
+    cli_returns
 
     bundler_version = nil
     update_index = nil
@@ -35,6 +34,11 @@ m = Module.new do
       update_index = i
     end
     bundler_version
+  end
+
+  def cli_returns
+    return unless invoked_as_script? # don't want to hijack other binstubs
+    return unless 'update'.start_with?(ARGV.first || ' ') # must be running `bundle update`
   end
 
   def gemfile
@@ -94,15 +98,20 @@ m = Module.new do
     end
     return if gem_error.nil?
 
+    require_error
+
+    warn "Activating bundler (#{bundler_requirement}) failed:\n#{gem_error.message}\n\nTo install the version of\n
+     bundler this project requires, run `gem install bundler -v '#{bundler_requirement}'`"
+    exit 42
+  end
+
+  def require_error
     require_error = activation_error_handling do
       require 'bundler/version'
     end
     if require_error.nil? && Gem::Requirement.new(bundler_requirement).satisfied_by?(Gem::Version.new(Bundler::VERSION))
-      return
+      nil
     end
-
-    warn "Activating bundler (#{bundler_requirement}) failed:\n#{gem_error.message}\n\nTo install the version of bundler this project requires, run `gem install bundler -v '#{bundler_requirement}'`"
-    exit 42
   end
 
   def activation_error_handling
