@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<table class="table table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Preparation_time</th>
+      <th>Cooking_time</th>
+      <th>Description</th>
+      <th>Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New recipe", new_recipe_path %>
