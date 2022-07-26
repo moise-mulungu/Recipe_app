@@ -2,6 +2,29 @@
 
 <h1>Recipes</h1>
 
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">preparation_time</th>
+      <th scope="col">cooking_time</th>
+      <th scope="col">description</th>
+      <th scope="col">user_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{name}</td>
+      <td>{preparation_time}</td>
+      <td>{cooking_time}</td>
+      <td>{description}</td>
+      <td>{user_id}</td>
+    </tr>
+    
+  </tbody>
+</table>
 <div id="recipes">
   <% @recipes.each do |recipe| %>
     <%= render recipe %>

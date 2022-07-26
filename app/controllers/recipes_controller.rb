@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :correct_user, only: %i[edit update destroy]
 
   # GET /recipes or /recipes.json
   def index
@@ -12,16 +14,23 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new
+    # @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   # GET /recipes/1/edit
   def edit
   end
 
+  def correct_user
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    redirect_to recipes_path, notice: 'You are not authorized to perform that operation' if @recipe.nil?
+  end
+
   # POST /recipes or /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    # @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     respond_to do |format|
       if @recipe.save
