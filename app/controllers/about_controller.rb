@@ -1,4 +1,4 @@
-# Service to download ftp files from the server
+# Service to download ftp file from the server
 class AboutController < ApplicationController
   def index; end
 end

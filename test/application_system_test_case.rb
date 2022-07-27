@@ -1,3 +1,4 @@
+# Service to download ftp files from the server
 require 'test_helper'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
