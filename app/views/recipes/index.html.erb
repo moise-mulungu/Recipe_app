@@ -15,7 +15,16 @@
   </thead>
   <tbody>
     <% @recipes.each do |recipe| %>
-      <%= render recipe %>
+    <% if recipe.user == current_user %>
+    <tr>
+      <td> <%= link_to recipe.name, recipe %> </td>
+      <td> <%= recipe.preparation_time %> </td>
+      <td> <%= recipe.cooking_time %> </td>
+      <td> <%= recipe.description %> </td>
+      <td> <%= link_to "Delete", @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger  btn-sm" %> </td>
+    </tr>
+<% end %>
+   
     <% end %>
   </tbody>
 </table>
