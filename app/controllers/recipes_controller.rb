@@ -39,10 +39,6 @@ class RecipesController < ApplicationController
     user = current_user
     recipe = Recipe.new(params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public))
     recipe.user = user
-    recipe_responder
-  end
-
-  def recipe_responder
     respond_to do |format|
       format.html do
         if recipe.save
