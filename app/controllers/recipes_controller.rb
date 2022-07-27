@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Service to download ftp files from the server
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
@@ -8,10 +10,10 @@ class RecipesController < ApplicationController
   def index
     # @recipes = Recipe.all
     @recipes = if current_user.nil?
-      []
-    else
-      @current_user.recipes
-    end
+                 []
+               else
+                 @current_user.recipes
+               end
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -39,13 +41,16 @@ class RecipesController < ApplicationController
     user = current_user
     recipe = Recipe.new(params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public))
     recipe.user = user
+    recipe_responder
+  end
+
+  def recipe_responder
     respond_to do |format|
       format.html do
         if recipe.save
           flash[:success] = 'Recipe saved successfully'
           redirect_to recipes_url
         else
-          flash[:error] = 'Error: recipe could not be saved'
           redirect_to new_recipe_url
         end
       end

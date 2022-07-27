@@ -13,12 +13,7 @@ AllCops:
 Layout/LineLength:
   Max: 350
 Metrics/MethodLength:
-  Exclude:
-    - "bin/*"
-  Include:
-    - "app/controllers/*"
-    - "app/models/*"
-  Max: 30
+  Max: 300
 Metrics/AbcSize:
   Include:
     - "app/controllers/*"

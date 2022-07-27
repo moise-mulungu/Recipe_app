@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Service to download ftp files from the server
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
@@ -53,7 +55,7 @@ class FoodsController < ApplicationController
   # DELETE /foods/1 or /foods/1.json
   def destroy
     @food = Food.find(params[:id])
-    if @food.destroy 
+    if @food.destroy
       respond_to do |format|
         format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
         format.json { head :no_content }
@@ -62,7 +64,6 @@ class FoodsController < ApplicationController
       flash[:error] = 'Something went wrong'
       render :show
     end
-    
   end
 
   def correct_user
