@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'shopping_list/index'
   get 'public_recipes/index'
   resources :recipe_foods
   resources :foods

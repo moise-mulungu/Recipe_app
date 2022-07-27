@@ -1,5 +1,5 @@
 require 'application_system_test_case'
-
+# Service to download ftp files from the server
 class RecipesTest < ApplicationSystemTestCase
   setup do
     @recipe = recipes(:one)

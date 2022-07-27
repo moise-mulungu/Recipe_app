@@ -1,5 +1,5 @@
 require 'test_helper'
-
+# Service to download ftp files from the server
 class RecipesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @recipe = recipes(:one)
