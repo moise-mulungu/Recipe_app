@@ -1,3 +1,4 @@
+# Service to download ftp files from the server
 class ChangeUsers < ActiveRecord::Migration[7.0]
   def change
     change_column(:recipes, :user_id, :integer)
