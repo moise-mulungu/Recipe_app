@@ -50,8 +50,6 @@ class RecipesController < ApplicationController
         end
       end
     end
-
-
   end
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
