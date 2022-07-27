@@ -37,8 +37,7 @@ class RecipesController < ApplicationController
   # POST /recipes or /recipes.json
   def create
     user = current_user
-    recipe = Recipe.new(params.require(
-      :recipe).permit(:name, :description, :preparation_time, :cooking_time, :public))
+    recipe = Recipe.new(params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public))
     recipe.user = user
     respond_to do |format|
       format.html do
