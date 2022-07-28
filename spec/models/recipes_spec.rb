@@ -2,26 +2,26 @@ require 'rails_helper'
 RSpec.describe Recipe, type: :model do
   it 'valid if name is present' do
     @user = User.create!(name: 'Moise', email: 'moisemlg90@gmail.com', password: 'moise123', role: 'admin')
-    @recipe = @user.recipes.create(name: 'Chapati', description: 'Chapati', preparation_time: '10 mins', cooking_time: '30 min')
+    @recipe = @user.recipes.create(name: 'Chapati', description: 'tasty', preparation_time: 'ten', cooking_time: 'thirty')
     expect(@recipe).to be_valid
   end
   it 'invalid if name is absent' do
     @user = User.create!(name: 'Moise', email: 'moisemlg90@gmail.com', password: 'moise123', role: 'admin')
-    @recipe = @user.recipes.create(name: 'Chapati', description: 'Chapati', preparation_time: '10 mins', cooking_time: '30 min')
+    @recipe = @user.recipes.create(name: 'Chapati', description: 'tasty', preparation_time: 'ten', cooking_time: 'thirty')
     expect(@recipe).to be_valid
   end
   it 'Recipe must be associated with a user' do
-    @recipe = Recipe.create(name: 'Chapati', description: 'Chapati', preparation_time: '10 mins', cooking_time: '30 min')
+    @recipe = Recipe.create(name: 'Chapati', description: 'tasty', preparation_time: 'ten', cooking_time: 'thirty')
     expect(@recipe).to_not be_valid
   end
   it 'valid if User is present' do
     @user = User.create!(name: 'Moise', email: 'moisemlg90@gmail.com', password: 'moise123', role: 'admin')
-    @recipe = @user.recipes.create(name: 'Chapati', description: 'Chapati', preparation_time: '10 mins', cooking_time: '30 min')
+    @recipe = @user.recipes.create(name: 'Chapati', description: 'tasty', preparation_time: 'ten', cooking_time: 'thirty')
     expect(@recipe).to be_valid
   end
   it 'valid if name is present' do
     @user = User.create!(name: 'Moise', email: 'moisemlg90@gmail.com', password: 'moise123', role: 'admin')
-    @recipe = @user.recipes.create(name: 'Chapati', description: 'Chapati', preparation_time: '10 mins', cooking_time: '30 min')
+    @recipe = @user.recipes.create(name: 'Chapati', description: 'tasty', preparation_time: 'ten', cooking_time: 'thirty')
     expect(@recipe).to be_valid
   end
   it 'Recipe must have a description' do
@@ -39,4 +39,4 @@ RSpec.describe Recipe, type: :model do
     @recipe = @user.recipes.create(name: 'Chapati', description: 'Chapati', preparation_time: '10 mins')
     expect(@recipe).to_not be_valid
   end
-end        
+end
