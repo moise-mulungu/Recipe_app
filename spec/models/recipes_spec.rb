@@ -31,7 +31,7 @@ RSpec.describe Recipe, type: :model do
   end
   it 'Recipe must have a preparation time' do
     @user = User.create!(name: 'Moise', email: 'moisemlg90@gmail.com', password: 'moise123', role: 'admin')
-    @recipe = @user.recipes.create(name: 'Chapati', description: 'Chapati', cooking_time: '30 min')
+    @recipe = @user.recipes.create(name: 'Chapati', description: 'Chapati', cooking_time: '30 mins')
     expect(@recipe).to_not be_valid
   end
   it 'Recipe must have a cooking time' do
