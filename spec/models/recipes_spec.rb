@@ -6,6 +6,10 @@ RSpec.describe Recipe, type: :model do
     expect(@recipe).to be_valid
   end
 
-  
+  it 'invalid if name is absent' do
+    @user = User.create!(name: 'Moise', email: 'moisemlg90@gmail.com', password: 'moise123', role: 'admin')
+    @recipe = @user.recipes.create(description: 'Chapati is a flour, onion and spices food fried in oil', preparation_time: '10 minutes', cooking_time: '30 minutes')
+    expect(@recipe).to_not be_valid
+  end 
 end
         
