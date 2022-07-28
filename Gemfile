@@ -2,7 +2,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
+
+# Authentication gem
 gem 'devise'
+
+# Authorization gem
+gem 'cancancan'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
