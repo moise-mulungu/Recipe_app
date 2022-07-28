@@ -2,7 +2,15 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
+
+# Bullet gem tracks and report inefficient queries
+gem 'bullet', group: 'development'
+
+# Authentication gem
 gem 'devise'
+
+# Authorization gem
+gem 'cancancan'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
@@ -54,6 +62,10 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '>= 3.9.0'
 end
 
 group :development do
