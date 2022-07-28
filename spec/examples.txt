@@ -1,13 +1,21 @@
 example_id                             | status | run_time        |
 -------------------------------------- | ------ | --------------- |
-./spec/models/foods_spec.rb[1:1]       | passed | 0.00803 seconds |
-./spec/models/foods_spec.rb[1:2]       | passed | 0.00563 seconds |
-./spec/models/foods_spec.rb[1:3]       | passed | 0.00249 seconds |
-./spec/models/foods_spec.rb[1:4]       | passed | 0.00673 seconds |
-./spec/models/foods_spec.rb[1:5]       | passed | 0.00736 seconds |
-./spec/models/foods_spec.rb[1:6]       | passed | 0.0074 seconds  |
-./spec/models/foods_spec.rb[1:7]       | passed | 0.00595 seconds |
-./spec/models/foods_spec.rb[1:8]       | passed | 0.00602 seconds |
-./spec/models/foods_spec.rb[1:9]       | passed | 0.00513 seconds |
-./spec/models/recipe_food_spec.rb[1:1] | passed | 0.00763 seconds |
-./spec/models/recipe_food_spec.rb[1:2] | passed | 0.05986 seconds |
+./spec/models/foods_spec.rb[1:1]       | passed | 0.02163 seconds |
+./spec/models/foods_spec.rb[1:2]       | passed | 0.01065 seconds |
+./spec/models/foods_spec.rb[1:3]       | passed | 0.0073 seconds  |
+./spec/models/foods_spec.rb[1:4]       | passed | 0.02303 seconds |
+./spec/models/foods_spec.rb[1:5]       | passed | 0.02616 seconds |
+./spec/models/foods_spec.rb[1:6]       | passed | 0.02309 seconds |
+./spec/models/foods_spec.rb[1:7]       | passed | 0.34279 seconds |
+./spec/models/foods_spec.rb[1:8]       | passed | 0.01932 seconds |
+./spec/models/foods_spec.rb[1:9]       | passed | 0.01606 seconds |
+./spec/models/recipe_food_spec.rb[1:1] | passed | 0.02157 seconds |
+./spec/models/recipe_food_spec.rb[1:2] | passed | 0.05745 seconds |
+./spec/models/recipes_spec.rb[1:1]     | passed | 0.01367 seconds |
+./spec/models/recipes_spec.rb[1:2]     | passed | 0.01505 seconds |
+./spec/models/recipes_spec.rb[1:3]     | passed | 0.00565 seconds |
+./spec/models/recipes_spec.rb[1:4]     | passed | 0.01284 seconds |
+./spec/models/recipes_spec.rb[1:5]     | passed | 0.01731 seconds |
+./spec/models/recipes_spec.rb[1:6]     | passed | 0.13051 seconds |
+./spec/models/recipes_spec.rb[1:7]     | passed | 0.05129 seconds |
+./spec/models/recipes_spec.rb[1:8]     | passed | 0.01212 seconds |
