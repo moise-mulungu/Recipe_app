@@ -1,32 +1,20 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Recipes</h1>
-
-<table class="table table-striped table-bordered">
-  <thead class="table-dark">
-    <tr>
-      <th>Name</th>
-      <th>Preparation_time</th>
-      <th>Cooking_time</th>
-      <th>Description</th>
-      <th>Delete</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <% @recipes.each do |recipe| %>
-    <% if recipe.user == current_user %>
-    <tr>
-      <td> <%= link_to recipe.name, recipe %> </td>
-      <td> <%= recipe.preparation_time %> </td>
-      <td> <%= recipe.cooking_time %> </td>
-      <td> <%= recipe.description %> </td>
-      <td> <%= link_to "Delete", @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger  btn-sm" %> </td>
-    </tr>
-<% end %>
-   
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to "New recipe", new_recipe_path %>
+<div class="wcontainer">
+  <div class="cont">
+      <h1 class="mb-3">Recipes</h1>
+        <% @recipes.each do |recipe| %>
+          <%= link_to recipes_path do %>
+            <div class="border border-dark p-4 row">
+              <div class="col-sm">
+                <h1><%= link_to recipe.name, recipe %></h1>
+                <p><%= link_to "REMOVE", @recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger  btn-sm" %></p>
+              </div>
+              <div class="col-sm">
+                <p class="deets"><%= recipe.description %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+  <%= link_to "New recipe", new_recipe_path %>
+</div>
