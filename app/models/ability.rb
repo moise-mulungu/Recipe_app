@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -9,7 +7,6 @@ class Ability
     return unless user.present?
 
     can :manage, :all
-    
     if user.role == 'admin'
       can :manage, :all
     else
