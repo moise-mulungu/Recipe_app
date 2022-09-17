@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Service to download ftp files from the server
 class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
