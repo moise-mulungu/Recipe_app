@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Service to download ftp files from the server
 class PublicRecipesController < ApplicationController
   def index

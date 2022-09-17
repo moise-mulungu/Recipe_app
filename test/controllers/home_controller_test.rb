@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'test_helper'
 # Service to download ftp files from the server
 class HomeControllerTest < ActionDispatch::IntegrationTest
